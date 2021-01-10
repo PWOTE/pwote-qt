@@ -24,11 +24,11 @@ https://pwote.co/?qt=<site>&q=<query>
 |   Query   |  Description              | Required?              | Default              | Example |
 |-----------|---------------------------|------------------------|----------------------|----------------------|
 | `kw`      |  Keyword/URL              | Required without `pid` |                      | `https://pwote.co/?qt=ftlus&kw=+yeezy,+350,+boost,-700` |
-| `id`      |  Product ID               | Required without `key` |                      |
-| `s`       |  Product Size             | Optional               | `random`             |
-| `style`   |  Product Style            | Needed for FNL/JD      |                      |
-| `pl`      |  Proxy List               | Optional               |  First List In Bot   |
-| `mode`    |  Task mode                | Optional               |  `safe`              |
-| `start`   |  Should Tasks Auto Start  | Optional               |  `true`              |
-| `st`*     |  Start Time of Tasks      | Optional               |                      |
-
+| `id`      |  Product ID               | Required without `key` |                      | `https://pwote.co/?qt=ftlus&id=55088118`
+| `s`       |  Product Size             | Optional               | `random`             | `https://pwote.co/?qt=ftlus&id=55088118&s=9.5 (single size)` `https://pwote.co/?qt=ftlus&id=55088118&s=7-10.5 (size range)`
+| `style`   |  Product Style            | Required for FNL/JD      |                      | `https://pwote.co/?qt=fnlus&id=prod1360195&style=555088` |
+| `pl`      |  Proxy List               | Optional               |  First List In Bot   | `https://pwote.co/?qt=ftlus&id=55088118&pl=1 (first list)` `https://pwote.co/?qt=ftlus&id=55088118&pl=proxy-list.json (specific)` |
+| `mode`    |  Task mode                | Optional               |  `safe`              | `https://pwote.co/?qt=ftlus&id=55088118&mode=fast2` |
+| `start`   |  Should Tasks Auto Start  | Optional               |  `true`              | `https://pwote.co/?qt=ftlus&id=55088118&start=true` | 
+| `st`*     |  Start Time of Tasks      | Optional               |                      | `https://pwote.co/?qt=ftlus&id=55088118&st=1610298110` | 
+* Start time needs to be in UNIX time. 
