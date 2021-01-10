@@ -30,5 +30,38 @@ https://pwote.co/?qt=<site>&q=<query>
 | `pl`      |  Proxy List               | Optional               |  First List In Bot   | `https://pwote.co/?qt=ftlus&id=55088118&pl=1 (first list)` `https://pwote.co/?qt=ftlus&id=55088118&pl=proxy-list.json (specific)` |
 | `mode`    |  Task mode                | Optional               |  `safe`              | `https://pwote.co/?qt=ftlus&id=55088118&mode=fast2` |
 | `start`   |  Should Tasks Auto Start  | Optional               |  `true`              | `https://pwote.co/?qt=ftlus&id=55088118&start=true` | 
-| `st`*     |  Start Time of Tasks      | Optional               |                      | `https://pwote.co/?qt=ftlus&id=55088118&st=1610298110` | 
-* Start time needs to be in UNIX time. 
+| `st`^     |  Start Time of Tasks      | Optional               |                      | `https://pwote.co/?qt=ftlus&id=55088118&st=1610298110` | 
+^ Start time needs to be in UNIX time. 
+
+### Site Codes
+To make it easier for the developers, we decided to add "site codes" as aliases for our sites. These site codes must be used in quick tasks and developers *cannot* use the actual site names.
+| Code                | Site |
+|--------------------|-------------------|
+| `ftlus` | Footlocker US (Footsites) | 
+| `ftlca` | Footlocker CA (Footsites) | 
+| `ftac` | Footaction (Footsites) | 
+| `ftea` | EastBay (Footsites) | 
+| `ftch` | ChampsSports (Footsites) | 
+| `fnlus` | Finishline US | 
+| `jdus` | JDSports US | 
+| `snipes` | Snipes USA | 
+| `crocs` | Crocs USA | 
+| `ys` | Yeezysupply | 
+| `nf` | Nike Desktop Frontend | 
+| `nb` | Nike Desktop Backend | 
+
+### Modes
+At the time of writing this, all modes are supported with quick tasks, including the new modes in the 1.0 version of our bot. These modes work directly with the `mode` query shown above. 
+
+| Mode                | Supported Sites                                              |
+|--------------------|----------------------------------------------------------------|
+| `fast`          | `yeezysupply`, `footlocker                                               |
+| `Browser`          | `yeezysupply`                                                  |
+| `Safe_PayPal`      | `solebox`                                                      |
+| `Backend`          | `footpatrol`, `size`, `jdsports`, `thehipstore:`               |
+| `Backend_PayPal`   | `footpatrol`, `size`, `jdsports`, `thehipstore`                |
+| `Fast_Frontend`    | `footpatrol`, `size`, `jdsports`, `thehipstore `               |
+| `Cart`             |  `asos`                                                        |
+
+
+
