@@ -15,12 +15,20 @@ Quick Tasks and Premade Tasks allow users to create and start tasks from anywher
 - [Nike Desktop](#nike)
 
 ## Format
-PWOTE allows and accepts both `POST` and `GET` requests to process requests for quicktasks and premade tasks. To process these quick tasks, we use URL parameters for quick tasks and premade tasks, `QT` and `PT` respectively with support for URL chaining accessable. 
+PWOTE allows and accepts both `POST` and `GET` requests to process requests for quicktasks and premade tasks. To process these quick tasks, we use URL parameters for quick tasks with support for URL chaining accessable. 
 
 ```http
-https://pwote.co/?qt=<site>&q=<parameters>
-
-OR 
-
-https://pwote.co/?pm=<site>&q=<parameters>
+https://pwote.co/?qt=<site>&q=<query>
 ```
+
+|   Query   |  Description              | Required?              | Default              |
+|-----------|---------------------------|------------------------|----------------------|
+| `kw`      |  Keyword/URL              | Required without `pid` |                      |
+| `id`      |  Product ID               | Required without `key` |                      |
+| `s`       |  Product Size             | Optional               | `random`             |
+| `style`   |  Product Style            | Needed for FNL/JD      |                      |
+| `pl`      |  Proxy List               | Optional               |  First List In Bot   |
+| `mode`    |  Task mode                | Optional               |  `safe`              |
+| `start`   |  Should Tasks Auto Start  | Optional               |  `true`              |
+| `st`*     |  Start Time of Tasks      | Optional               |                      |
+
