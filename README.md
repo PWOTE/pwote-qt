@@ -21,9 +21,9 @@ PWOTE allows and accepts both `POST` and `GET` requests to process requests for 
 https://pwote.co/?qt=<site>&q=<query>
 ```
 
-|   Query   |  Description              | Required?              | Default              |
-|-----------|---------------------------|------------------------|----------------------|
-| `kw`      |  Keyword/URL              | Required without `pid` |                      |
+|   Query   |  Description              | Required?              | Default              | Example |
+|-----------|---------------------------|------------------------|----------------------|----------------------|
+| `kw`      |  Keyword/URL              | Required without `pid` |                      | `https://pwote.co/?qt=ftlus&kw=+yeezy,+350,+boost,-700` |
 | `id`      |  Product ID               | Required without `key` |                      |
 | `s`       |  Product Size             | Optional               | `random`             |
 | `style`   |  Product Style            | Needed for FNL/JD      |                      |
