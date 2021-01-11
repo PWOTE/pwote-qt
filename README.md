@@ -15,8 +15,8 @@ https://pwote.co/?qt=<site>&q=<query>
 
 |   Query   |  Description              | Required?              | Default              | Example |
 |-----------|---------------------------|------------------------|----------------------|----------------------|
-| `kw`      |  Keyword/URL              | Required without `pid` |                      | `https://pwote.co/?qt=ftlus&kw=+yeezy,+350,+boost,-700` |
-| `id`      |  Product ID               | Required without `key` |                      | `https://pwote.co/?qt=ftlus&id=55088118`
+| `kw`      |  Keyword/URL              | Required without `id` |                      | `https://pwote.co/?qt=ftlus&kw=+yeezy,+350,+boost,-700` |
+| `id`      |  Product ID               | Required without `kw` |                      | `https://pwote.co/?qt=ftlus&id=55088118`
 | `s`       |  Product Size             | Optional               | `random`             | `https://pwote.co/?qt=ftlus&id=55088118&s=9.5 (single size)` `https://pwote.co/?qt=ftlus&id=55088118&s=7-10.5 (size range)` | 
 | `style`   |  Product Style            | Required for FNL/JD      |                      | `https://pwote.co/?qt=fnlus&id=prod1360195&style=555088` |
 | `pl`      |  Proxy List               | Optional               |  First List In Bot   | `https://pwote.co/?qt=ftlus&id=55088118&pl=1 (first list)` `https://pwote.co/?qt=ftlus&id=55088118&pl=proxy-list.json (specific)` |
@@ -67,3 +67,51 @@ https://pwote.co/?qt=lc&url=https://www.eastbay.com/en/product/~/55088118.html (
 https://pwote.co/?qt=lc&id=55088118 (all tasks)
 https://pwote.co/?qt=lc&site=ftea&id=55088118 (all Eastbay tasks)
 ```
+
+ ### Requests 
+ As mentioned previously, we support both `POST` and `GET` requests. From a developer's perspective, these are both very easy to handle. 
+ 
+ #### POST Requests
+ For `POST` requests, the software / application sending the request needs to attach the last five characters of the license key that the software want to send the quick task to in the request's body. You must address this request with `key` or `KEY` (both case sensitive, if two objects are provided, the first will be taken). An example of this can be shown in the image below with postman, but you can use whichever HTTP request client of your choosing. *This is the preferred method for software / application developers.*
+![](https://media.discordapp.net/attachments/702974537540698193/798018425296912404/unknown.png)
+
+If successful with the `POST` request, you should recieve this response: 
+```
+{ 
+  "message": "Successfully processed quick task!",
+  "quicktask": "https://pwote.co/?qt=lc&url=https://www.eastbay.com/en/product/~/55088118.html",
+  "license": {
+    "key": "*ABCD3",
+    "userid": "257339852171902976",
+    "active": "true"
+  },
+  "status": 200
+}
+```
+
+You need to rely on the status codes that the response has to process as that will be the most accurate. 
+
+| Meaning | Code | 
+|------------------|------|
+| Success  | `200` |
+| Bot Not Online         | `220` | 
+| Invalid Key      | `500` | 
+| Key Terminated | `350` | 
+| Invalid Quicktask Parameters | `400` | 
+
+**Always make sure that your response comes from `api.pwote.co`, `pwote.co`, or `ajaymsra.com`.**
+
+#### GET Requests 
+An alternative to the `POST` request is the classic `GET` request invoked by the user normally. In the case of a `GET` request, no license key is needed from the developer's perspective. However, this does require more user input. There is some form of a confirmation step on our side to confirm that the request is legitimate and wanted, and if it is, the request is sent through our servers. *This is the preferred method for monitor developers.*
+
+Please keep in mind, for this, a user must be logged in through our dashboard. 
+
+First, the user is shown a page similar to this to confirm that they want to create a set of quick tasks. The amount of quick tasks can be configured in the settings of the bot and cannot be configured by developers. 
+ 
+ ![](https://media.discordapp.net/attachments/702974537540698193/798016913607229490/unknown.png?width=2154&height=1346)
+ 
+ If the user selects "I am ok with this", the request is sent and the user is able to view their new / editted tasks from their user dashboard. If the latter is selected, then the request is halted. 
+ 
+ The success window looks similar to the image below. 
+ ![](https://media.discordapp.net/attachments/702974537540698193/798015663561900092/unknown.png)
+
