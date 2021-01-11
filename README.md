@@ -71,8 +71,8 @@ https://pwote.co/?qt=lc&site=ftea&id=55088118 (all Eastbay tasks)
  ### Requests 
  As mentioned previously, we support both `POST` and `GET` requests. From a developer's perspective, these are both very easy to handle. 
  
- #### POST Requests
- For `POST` requests, the software / application sending the request needs to attach the last five characters of the license key that the software want to send the quick task to in the request's body. You must address this request with `key` or `KEY` (both case sensitive, if two objects are provided, the first will be taken). An example of this can be shown in the image below with postman, but you can use whichever HTTP request client of your choosing. *This is the preferred method for software / application developers.*
+ #### POST Requests (This is the preferred method for software / application developers.)
+ For `POST` requests, the software / application sending the request needs to attach the last five characters of the license key that the software want to send the quick task to in the request's body. You must address this request with `key` or `KEY` (both case sensitive, if two objects are provided, the first will be taken). An example of this can be shown in the image below with postman, but you can use whichever HTTP request client of your choosing. 
 ![](https://media.discordapp.net/attachments/702974537540698193/798018425296912404/unknown.png)
 
 If successful with the `POST` request, you should recieve this response: 
@@ -101,8 +101,8 @@ You need to rely on the status codes that the response has to process as that wi
 
 **Always make sure that your response comes from `api.pwote.co`, `pwote.co`, or `ajaymsra.com`.**
 
-#### GET Requests 
-An alternative to the `POST` request is the classic `GET` request invoked by the user normally. In the case of a `GET` request, no license key is needed from the developer's perspective. However, this does require more user input. There is some form of a confirmation step on our side to confirm that the request is legitimate and wanted, and if it is, the request is sent through our servers. *This is the preferred method for monitor developers.*
+#### GET Requests (This is the preferred method for monitor developers.)
+An alternative to the `POST` request is the classic `GET` request invoked by the user normally. In the case of a `GET` request, no license key is needed from the developer's perspective. However, this does require more user input. There is some form of a confirmation step on our side to confirm that the request is legitimate and wanted, and if it is, the request is sent through our servers. 
 
 Please keep in mind, for this, a user must be logged in through our dashboard. 
 
